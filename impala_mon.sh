@@ -21,7 +21,7 @@ do
                 difference=$(( $current_time_stamp - $start_time_stamp ))
                 if [ $difference -gt $THRESHOLD_TIME ]
                 then
-                        echo -e "The impala query submitted by user $user is running for $(expr $difference / 60 ):$(expr $difference % 60)). Please check it. \n sed -n '/Sql Statement/,/Coordinator/p' /data/scripts/impala_query_details.html | grep -v Coordinator" | mail -s "Warning: $user Impala query running for more than $(expr $THRESHOLD_TIME / 60 )  mins" -r $SUPPORT_EMAIL "$SUPPORT_EMAIL"
+                        echo -e "The impala query submitted by user $user is running for $(expr $difference / 60 ):$(expr $difference % 60)). Please check it. \n $(sed -n '/Sql Statement/,/Coordinator/p' /data/scripts/impala_query_details.html | grep -v Coordinator)" | mail -s "Warning: $user Impala query running for more than $(expr $THRESHOLD_TIME / 60 )  mins" -r $SUPPORT_EMAIL "$SUPPORT_EMAIL"
                 fi
         done
 done
