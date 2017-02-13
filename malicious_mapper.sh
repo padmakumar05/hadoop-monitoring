@@ -37,7 +37,7 @@ do
 
         then
                 ### IF the no of mappers is above the threshold, send an alert to the team.
-                echo -e "Number of maps\t=\t$no_of_maps. \nJob ID\t=\t$i\n" | mail -s "[US Prod] WARNING: Malicious job found: User: $user: Queue:$queue application: $application_id" "$EMAIL_GROUP"
+                echo -e "Number of maps\t=\t$no_of_maps. \nJob ID\t=\t$i\n" | mail -s "WARNING: Malicious job found: User: $user: Queue:$queue application: $application_id" "$EMAIL_GROUP"
 
         fi;
 
