@@ -23,7 +23,7 @@ def send_email(job_id,username,queuename,cpu_usage,mem_usage):
 	msg['From'] = fromaddr
 	msg['To'] = toaddr
 	msg['Subject'] = "High Resource Usage by Job: %s Username: %s Queue: %s" %(job_id,username,queuename)
-	body = "<html> <body> <style> table, th, td {     border: 1px solid black;    border-collapse: collapse; }  th, td {  padding: 5px; } th {  text-align: left; }  </style> <p><b>Hi Team,</b></p> <p>This job is using too much resource:</p> <p><table><th>Details</th><th>Value</th></th> <tr><td>Job ID</td><td>%s</td></tr> <tr><td>Username</td><td>%s</td></tr> <tr><td>Queue Name</td><td>%s</td></tr> <tr><td>CPU Used</td><td>%s</td></tr> <tr><td>Memory Used</td><td>%s</td></tr>  </p> </body> </html>" %(job_id,username,queuename,cpu_usage,mem_usage)
+	body = "<html> <body> <style> table, th, td {     border: 1px solid black;    border-collapse: collapse; }  th, td {  padding: 5px; } th {  text-align: left; }  </style> <p><b>Hi Team,</b></p> <p>This job is using too much resource:</p> <p><table><th>Details</th><th>Value</th></th> <tr><td>Job ID</td><td>%s</td></tr> <tr><td>Username</td><td>%s</td></tr> <tr><td>Queue Name</td><td>%s</td></tr> <tr><td>CPU Used</td><td>%s</td></tr> <tr><td>Memory Used in MB</td><td>%s</td></tr>  </p> </body> </html>" %(job_id,username,queuename,cpu_usage,mem_usage)
 	msg.attach(MIMEText(body, 'html'))
 	server = smtplib.SMTP('you_SMTP_server', 25)
 	text = msg.as_string()
