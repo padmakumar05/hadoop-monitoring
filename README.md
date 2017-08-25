@@ -17,3 +17,7 @@ The script malicious_mapper.sh, helps you to monitor mapreduce jobs which consum
     Huge number of mappers because the query is run on a large table and not optimized
 
 Such alerts will help us to work with the user or team to help them optimize the data(to put up a plan to make sure that the data splits size is equal to the dfs block size) or query. This will help us to make sure that the cluster resources are utilized in an optimized manner.
+
+# Job Resource Monitoring Script
+
+The script job_resource_mon.py, helps you to monitor the resource usage of each job which is running on the cluster. It will alert you if the script found a job which is using more resources than the threshold value you set.
